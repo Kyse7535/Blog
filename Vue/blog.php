@@ -21,31 +21,7 @@
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center py-4">
-                    <h1>BLOG VOYAGE</h1>
-                </div>
-                <div class="col-12 col-md-8 offset-md-2">
-                    <ul class="align-items-center">
-                        <li>
-                            <a href="#">Accueil</a>
-                        </li>
-                        <li>
-                            <a href="#">blog</a>
-                        </li>
-                        <li>
-                            <a href="#">a propos</a>
-                        </li>
-                        <li>
-                            <a href="#">contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
+    <?php require("header.php"); ?>
     <main>
         <div class="container">
             <div class="row">
@@ -93,7 +69,7 @@
             </div>
         </div>
     </main>
-    <footer></footer>
+    <?php require("footer.php"); ?>
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->

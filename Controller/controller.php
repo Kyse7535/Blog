@@ -27,9 +27,14 @@ function CtlArticle($Id_billet)
     $resultat = getArticle($Id_billet, $GLOBALS['base']);
     $nbcomment = getRowNumber($GLOBALS['base'], $Id_billet);
     $resultat1 = getFirstArticles($GLOBALS['base']);
-    $article = $resultat->fetch();
+
     $commentaires = getFirstComments($Id_billet, $GLOBALS['base']);
-    require("./Vue/article.php");
+    if ($nbcomment == false || $resultat1 == false || $resultat == false || $commentaires == false) {
+        throw new Exception("Impossible d'afficher la page");
+    } else {
+        $article = $resultat->fetch();
+        require("./Vue/article.php");
+    }
 }
 
 function CtlSetComment($auteur, $comment, $Id_billet, $base)
