@@ -1,0 +1,35 @@
+.ligne1,
+.ligne2 {
+    padding: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ligne1 img,
+.ligne2 img {
+    width: 40%;
+    height: auto;
+    align-self: flex-start;
+    position: relative;
+    top: 10%;
+}
+
+.text {
+    padding: 0 2%;
+    width: 59%;
+    font-size: 13px;
+}
+
+@media (min-width: 990px) {
+    img {
+        width: 60%;
+        height: auto;
+        align-self: flex-start;
+    }
+    .text {
+        padding: 0 2%;
+        width: 49%;
+        font-size: 12px;
+    }
+}
