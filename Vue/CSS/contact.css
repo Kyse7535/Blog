@@ -20,13 +20,13 @@ form {
 
 @media (min-width: 768px) {
     .ligne img {
-        width: 70%;
+        width: 49%;
         height: auto;
     }
     .text,
     form {
         padding: 0 2%;
-        width: 25%;
+        width: 49%;
         font-size: 15px;
     }
 }

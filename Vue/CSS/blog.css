@@ -42,3 +42,10 @@ main .article a {
     color: #fff;
     border-radius: 4px;
 }
+
+main .publish a {
+    color: #fff;
+    background-color: #33b5e5;
+    padding: 10px 45px;
+    border-radius: 5px;
+}

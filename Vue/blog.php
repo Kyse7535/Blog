@@ -16,8 +16,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="CSS/index.css">
-    <link rel="stylesheet" href="CSS/blog.css">
+    <link rel="stylesheet" href="Vue/CSS/index.css">
+    <link rel="stylesheet" href="Vue/CSS/blog.css">
 </head>
 
 <body>
@@ -71,6 +71,9 @@
                         ?>
                     </div>
                 </div>
+            </div>
+            <div class="col-12 col-md-4 offset-md-2 text-center publish my-3">
+                <a href="#">Publier un article <i class="fas fa-plus"></i></a>
             </div>
         </div>
     </main>
