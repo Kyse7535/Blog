@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A propos</title>
+    <link rel="icon" href="Vue/CSS/volks.png" type="image/gif" sizes="16x16">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Google Fonts -->
@@ -26,7 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-9 offset-md-1 ligne mb-4">
-                    <img src="Vue/CSS/image1.jpg" alt="">
+                    <img src="Vue/CSS/image2.jpg" alt="">
                     <div class="text">
                         <h3>Qui suis-je ?</h3>
                         <p>Ceci est un paragraphe. Survolez-moi avec votre souris d'ordinateur et cliquez une fois pour
