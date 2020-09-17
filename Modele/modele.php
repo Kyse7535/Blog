@@ -10,21 +10,22 @@ function connexion()
 
 function getAllArticles($base)
 {
-    $sql = "SELECT * FROM billet";
+    $sql = "SELECT * FROM billet ORDER BY date_creation, Id_billet DESC";
     $resultat = $base->query($sql);
     return $resultat;
 }
 
-function getRowNumber($base)
+function getRowNumber($base, $Id_billet)
 {
-    $sql = "SELECT * FROM commentaire";
-    $resultat = $base->query($sql);
+    $sql = "SELECT * FROM commentaire WHERE Id_billet = ?";
+    $resultat = $base->prepare($sql);
+    $ok = $resultat->execute(array($Id_billet));
     return $resultat->rowCount();
 }
 
 function getFirstArticles($base)
 {
-    $sql = "SELECT * FROM billet ORDER BY date_creation, Id_billet DESC LIMIT 5";
+    $sql = "SELECT * FROM billet ORDER BY date_creation, Id_billet DESC LIMIT 4";
     $resultat = $base->query($sql);
     return $resultat;
 }

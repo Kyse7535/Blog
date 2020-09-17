@@ -7,8 +7,18 @@ function CtlBlog()
 {
     $resultat1 = getAllArticles($GLOBALS['base']);
     $resultat2 = getFirstArticles($GLOBALS['base']);
-
-    require("./Vue/blog.php");
+    if ($resultat1 == false || $resultat2 == false) {
+        throw new Exception("Impossible d'afficher la page");
+    } else {
+        function _50_premier_mot($chaine)
+        {
+            $contenu = $chaine;
+            $tab_contenu = explode(" ", $contenu);
+            $debut_contenu = implode(",", array_slice($tab_contenu, 0, 50)) . " ...";
+            return $debut_contenu;
+        }
+        require("./Vue/blog.php");
+    }
 }
 
 function CtlAccueil()

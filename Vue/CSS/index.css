@@ -290,6 +290,7 @@ footer a {
         display: flex;
         justify-content: space-evenly;
         margin: 0;
+        padding: 2% 0;
     }
     main .latest_article_list img {
         width: 35%;

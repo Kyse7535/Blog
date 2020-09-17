@@ -69,7 +69,7 @@
                     <h2 class="text-center py-3">Articles recents</h2>
                     <div class="latest_article_list">
                         <?php
-                        echo "lkjhgkljkhjgf";
+
                         while ($donnees = $resultat->fetch()) {
                         ?>
                         <div class="item">

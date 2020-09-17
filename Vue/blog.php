@@ -24,46 +24,51 @@
     <?php require("header.php"); ?>
     <main>
         <div class="container">
-            <div class="row">
-                <div class="col-9 text-right">
-                    <h2>Titre</h2>
+            <!-- debut list des articles-->
+            <div class="row ligne">
+                <?php
+                while ($article = $resultat1->fetch()) {
+                ?>
+                <div class="col-9 text-right py-5 article">
+                    <h2><?= $article['titre'] ?></h2>
                     <div class="date_auteur">
-                        <p>29.06.2016 | Par auteur</p>
-                        <p>0 commentaire</p>
+                        <p><?= $article['date_creation'] ?> | <?= $article['auteur'] ?></p>
+                        <p><?= getRowNumber($GLOBALS['base'], $article['Id_billet']) ?> commentaire(s)</p>
                     </div>
                     <figure>
-                        <img src="CSS/blue-hour.jpg" alt="" class="img-fluid">
-                        <figcaption>debut text</figcaption>
+                        <img src="Vue/CSS/blue-hour.jpg" alt="" class="img-fluid">
+                        <figcaption><?= _50_premier_mot($article['contenu']) ?></figcaption>
                     </figure>
-                    <a href="#">Lire la suite</a>
+                    <a href="index?action=article&Id=<?= $article['Id_billet'] ?>">Lire la suite</a>
                 </div>
-                <div class="col-3">
-                    <h2 class="text-center py-3">Articles recents</h2>
+                <?php
+                }
+                ?>
+                <!--fin list des articles -->
+
+
+                <!-- ce code affiche le bloc article recent -->
+                <div class="col-3 latest_article">
+                    <h2 class="text-center py-1">Articles recents</h2>
                     <div class="latest_article_list">
+                        <?php
+
+                        while ($donnees = $resultat2->fetch()) {
+                        ?>
                         <div class="item">
-                            <figure class="py-1">
-                                <img class="img-fluid" src="./CSS/blue-hour.jpg" alt="article">
-                                <figcaption class="py-2">
-                                    <b>Titre</b> , 27 Juin 2020
+                            <figure>
+                                <img class="img-fluid" src="Vue/CSS/blue-hour.jpg" alt="article">
+                                <figcaption class="py-2"><a
+                                        href="index.php?action=article&Id=<?= $donnees['Id_billet']; ?>">
+                                        <b><?= $donnees['titre']; ?></b> , <?= $donnees['date_creation']; ?>
+                                    </a>
+
                                 </figcaption>
                             </figure>
                         </div>
-                        <div class="item">
-                            <figure class="py-1">
-                                <img class="img-fluid" src="./CSS/blue-hour.jpg" alt="article">
-                                <figcaption class="py-2">
-                                    <b>Titre</b> , 27 Juin 2020
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="item">
-                            <figure class="py-1">
-                                <img class="img-fluid" src="./CSS/blue-hour.jpg" alt="article">
-                                <figcaption class="py-2">
-                                    <b>Titre</b> , 27 Juin 2020
-                                </figcaption>
-                            </figure>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

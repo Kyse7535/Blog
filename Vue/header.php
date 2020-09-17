@@ -1,6 +1,6 @@
 <style>
-<?php require("./Blog1/Vue/CSS/index.css");
-?><?php require("C");
+<?php require("Vue/CSS/index.css");
+?><?php require("Vue/CSS/blog.css");
 ?>
 </style>
 <header>
