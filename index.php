@@ -1,5 +1,5 @@
 <?php
-require("./controller/controller.php");
+require("./Controller/controller.php");
 
 try {
     if (isset($_GET['action'])) {

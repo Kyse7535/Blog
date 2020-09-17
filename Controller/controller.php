@@ -14,7 +14,11 @@ function CtlBlog()
 function CtlAccueil()
 {
     $resultat = getFirstArticles($GLOBALS['base']);
-    require("./Vue/accueil.php");
+    if ($resultat == false) {
+        throw new Exception("Impossible d'afficher la page");
+    } else {
+        require("./Vue/accueil.php");
+    }
 }
 
 function CtlArticle($Id_billet)

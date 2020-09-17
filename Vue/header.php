@@ -1,5 +1,5 @@
 <style>
-<?php include "CSS/index.css";
+<?php require("CSS/index.css");
 ?><?php require('CSS/blog.css');
 ?><?php require('CSS/article.css');
 ?>

@@ -44,3 +44,11 @@ function getFirstComments($Id_billet, $base)
     $ok = $resultat->execute(array($Id_billet));
     return $resultat;
 }
+
+function setComment($auteur, $comment, $Id_billet, $base)
+{
+    $sql = "INSERT INTO commentaire(Id_billet, auteur, commentaire) VALUES(?, ?, ?)";
+    $resultat = $base->prepare($sql);
+    $ok = $resultat->execute(array($Id_billet, $auteur, $comment));
+    return $resultat;
+}
