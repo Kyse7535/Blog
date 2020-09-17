@@ -16,9 +16,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="CSS/index.css">
-    <link rel="stylesheet" href="CSS/blog.css">
-    <link rel="stylesheet" href="CSS/article.css">
+    <link rel="stylesheet" href="Vue/CSS/index.css">
+    <link rel="stylesheet" href="Vue/CSS/blog.css">
+    <link rel="stylesheet" href="Vue/CSS/article.css">
 </head>
 
 <body>
@@ -27,14 +27,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-9 text-right">
-                    <h2>Titre</h2>
+                    <h2><?= $article['titre'] ?></h2>
                     <div class="date_auteur">
-                        <p>29.06.2016 | Par auteur</p>
-                        <p>0 commentaire</p>
+                        <p><?= $article['date_creation'] ?> | Par <?= $article['auteur'] ?></p>
+                        <p><?= $nbcomment ?> commentaire(s)</p>
                     </div>
                     <figure>
-                        <img src="CSS/blue-hour.jpg" alt="" class="img-fluid">
-                        <figcaption>contenu text</figcaption>
+                        <img src="Vue/CSS/blue-hour.jpg" alt="" class="img-fluid">
+                        <figcaption><?= $article['contenu'] ?></figcaption>
                     </figure>
                 </div>
                 <div class="col-2 offset-md-1">
@@ -57,49 +57,51 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-3 offset-md-1">
-                    <h2 class="text-center py-3">Articles recents</h2>
+                <div class="col-3">
+                    <h2 class="text-center py-1">Articles recents</h2>
                     <div class="latest_article_list">
+                        <?php
+
+                        while ($donnees = $resultat1->fetch()) {
+                        ?>
                         <div class="item">
-                            <figure class="py-1">
-                                <img class="img-fluid" src="./CSS/blue-hour.jpg" alt="article">
-                                <figcaption class="py-2">
-                                    <b>Titre</b> , 27 Juin 2020
+                            <figure>
+                                <img class="img-fluid" src="Vue/CSS/blue-hour.jpg" alt="article">
+                                <figcaption class="py-2"><a
+                                        href="index.php?action=article&Id=<?= $donnees['Id_billet']; ?>">
+                                        <b><?= $donnees['titre']; ?></b> , <?= $donnees['date_creation']; ?>
+                                    </a>
+
                                 </figcaption>
                             </figure>
                         </div>
-                        <div class="item">
-                            <figure class="py-1">
-                                <img class="img-fluid" src="./CSS/blue-hour.jpg" alt="article">
-                                <figcaption class="py-2">
-                                    <b>Titre</b> , 27 Juin 2020
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="item">
-                            <figure class="py-1">
-                                <img class="img-fluid" src="./CSS/blue-hour.jpg" alt="article">
-                                <figcaption class="py-2">
-                                    <b>Titre</b> , 27 Juin 2020
-                                </figcaption>
-                            </figure>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="col-8">
                     <h3>commentaires</h3>
                     <div class="commentaire">
-                        <p>les commentaires</p>
+                        <?php while ($comment = $commentaires->fetch()) {
+                            $Id_billet = $comment['Id_billet'];
+                        ?>
+
+                        <h6><b><?= $comment['auteur'] ?></b>, le <?= $comment['date_creation'] ?></h6>
+                        <p><?= $comment['commentaire'] ?></p>
+                        <?php
+                        } ?>
+
                     </div>
                 </div>
                 <div class="col-4"></div>
-                <div class="col-9">
+                <div class="col-9 mb-4">
                     <h3>Laisser un commentaire</h3>
-                    <form action="article.post.html" method="POST">
-                        <label for=""><input type="text" placeholder="Nom" name="nom"> *</label>
+                    <form action="index.php?action=post&Id=<?= $Id_billet ?>" method="POST">
+                        <label for=""><input type="text" placeholder="Nom" name="nom" required> *</label>
                         <label for=""><input type="text" placeholder="Email" name="email"> *</label>
-                        <label class="text" for=""><textarea name="" id="" cols="30" rows="4"
-                                placeholder="commentaire"></textarea>
+                        <label class="text" for=""><textarea name="comment" id="" cols="30" rows="4"
+                                placeholder="commentaire" required></textarea>
                             <span>*</span></label><br>
                         <p>* champ obligatoire</p>
 

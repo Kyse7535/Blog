@@ -20,7 +20,7 @@ try {
                         $auteur = htmlspecialchars($_POST['nom']);
                         $comment = htmlspecialchars($_POST['comment']);
                         $Id_billet = intval(htmlspecialchars($_GET['Id']));
-                        CtlSetComment($auteur, $comment, $Id_billet, $GLOBALS['base']);
+                        CtlSetComment($auteur, $comment, $Id_billet);
                         CtlArticle($Id_billet);
                     }
                 }

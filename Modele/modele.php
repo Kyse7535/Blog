@@ -19,7 +19,7 @@ function getRowNumber($base, $Id_billet)
 {
     $sql = "SELECT * FROM commentaire WHERE Id_billet = ?";
     $resultat = $base->prepare($sql);
-    $ok = $resultat->execute(array($Id_billet));
+    $resultat->execute(array($Id_billet));
     return $resultat->rowCount();
 }
 
@@ -34,15 +34,15 @@ function getArticle($Id_billet, $base)
 {
     $sql = "SELECt * FROM billet WHERE Id_billet = ?";
     $resultat = $base->prepare($sql);
-    $ok = $resultat->execute(array($Id_billet));
-    return $resultat;
+    $resultat->execute(array($Id_billet));
+    return $resultat->fetch();
 }
 
 function getFirstComments($Id_billet, $base)
 {
-    $sql = "SELECT * FROM commentaire WHERE Id_billet = ? ORDER BY date_creation, Id_commentaire DESC LIMIT 5";
+    $sql = "SELECT * FROM commentaire WHERE Id_billet = ? ORDER BY date_creation DESC, Id_commentaire DESC LIMIT 5";
     $resultat = $base->prepare($sql);
-    $ok = $resultat->execute(array($Id_billet));
+    $resultat->execute(array($Id_billet));
     return $resultat;
 }
 
@@ -50,6 +50,5 @@ function setComment($auteur, $comment, $Id_billet, $base)
 {
     $sql = "INSERT INTO commentaire(Id_billet, auteur, commentaire) VALUES(?, ?, ?)";
     $resultat = $base->prepare($sql);
-    $ok = $resultat->execute(array($Id_billet, $auteur, $comment));
-    return $resultat;
+    $resultat->execute(array($Id_billet, $auteur, $comment));
 }

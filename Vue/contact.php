@@ -17,7 +17,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="Vue/CSS/index.css">
-    <link rel="stylesheet" href="/Vue/CSS/contact.css">
+    <link rel="stylesheet" href="Vue/CSS/contact.css">
 </head>
 
 <body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-4 py-1 latest_article">
+                <div class="col-12 col-md-4 py-1">
                     <h2 class="text-center py-3">Articles recents</h2>
                     <div class="latest_article_list">
                         <?php

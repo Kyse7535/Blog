@@ -39,7 +39,7 @@
                         <img src="Vue/CSS/blue-hour.jpg" alt="" class="img-fluid">
                         <figcaption><?= _50_premier_mot($article['contenu']) ?></figcaption>
                     </figure>
-                    <a href="index?action=article&Id=<?= $article['Id_billet'] ?>">Lire la suite</a>
+                    <a href="index.php?action=article&Id=<?= $article['Id_billet'] ?>">Lire la suite</a>
                 </div>
                 <?php
                 }

@@ -34,22 +34,20 @@ function CtlAccueil()
 function CtlArticle($Id_billet)
 {
     $Id_billet = intval($Id_billet);
-    $resultat = getArticle($Id_billet, $GLOBALS['base']);
+    $article = getArticle($Id_billet, $GLOBALS['base']);
     $nbcomment = getRowNumber($GLOBALS['base'], $Id_billet);
     $resultat1 = getFirstArticles($GLOBALS['base']);
-
     $commentaires = getFirstComments($Id_billet, $GLOBALS['base']);
-    if ($nbcomment == false || $resultat1 == false || $resultat == false || $commentaires == false) {
+    if ($resultat1 == false || $commentaires == false || $nbcomment == false || $article == false) {
         throw new Exception("Impossible d'afficher la page");
     } else {
-        $article = $resultat->fetch();
         require("./Vue/article.php");
     }
 }
 
-function CtlSetComment($auteur, $comment, $Id_billet, $base)
+function CtlSetComment($auteur, $comment, $Id_billet)
 {
-    $resultat = setComment($auteur, $comment, $Id_billet, $base);
+    setComment($auteur, $comment, $Id_billet, $GLOBALS['base']);
 }
 
 function CtlA_propos()

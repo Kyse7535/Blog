@@ -7,27 +7,26 @@
 }
 
 img {
-    width: 50%;
+    width: 40%;
     height: auto;
 }
 
 .text,
 form {
     padding: 0 2%;
-    width: 49%;
+    width: 59%;
     font-size: 13px;
 }
 
-@media (min-width: 990px) {
-    img {
-        width: 35%;
+@media (min-width: 768px) {
+    .ligne img {
+        width: 70%;
         height: auto;
-        align-self: flex-start;
     }
     .text,
     form {
         padding: 0 2%;
-        width: 45%;
+        width: 25%;
         font-size: 15px;
     }
 }
